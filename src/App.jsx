@@ -1,25 +1,26 @@
 // import { useState } from 'react';
 // import viteLogo from '/vite.svg';
-import { Route, Router, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TopNav from './components/topNav';
 import MainLayout from './layout/MainLayout';
 import Intro from './pages/Intro/Intro';
 import Preset from './pages/Presets/Preset';
 
+
+    
+
 function App() {
 
   return (
-    <>
-      {/* <MainLayout /> */}
-      <Router>   
-        <Routes>
-          <Route path='/' element={<MainLayout />}>
-            <Route index element={<Intro />} />
-            {/* <Route path='/preset' exact element={<Preset />} /> */}
-          </Route>
-        </Routes>
-      </Router>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainLayout />}>
+          <Route path='/' element={<Intro />} />
+          <Route path='/preset' element={<Preset />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  
   )
 }
 

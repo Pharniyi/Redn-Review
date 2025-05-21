@@ -14,7 +14,7 @@ const Intro = () => {
         <div className='p-1 text-gray-500'>Start by updating your presets.</div>
         <div className='p-7'>
             <button className='bg-red-700 text-white rounded py-2 px-2'>
-            Update my presets
+                Update my presets
             </button>
         </div>
         </div>
