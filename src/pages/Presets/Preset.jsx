@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import TopNav from "../../components/topNav";
+import { Navigate } from "react-router-dom";
 
 const Preset = () => {
   const [pin, setPin] = React.useState(["", "", "", "", "", ""]);
   const inputsRef = React.useRef([]);
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (pin.join('') === '123456') {
+      return <Navigate to="/create" replace />;
+    } else {
+      setError('Incorrect Password');
+    }
+  }
 
   // Handle input change
   const handleChange = (e, idx) => {
@@ -69,7 +81,7 @@ const Preset = () => {
           }
         `}
       </style>
-      <div className="px-64">
+      <div className="px-64 pb-22">
         <div className="flex justify-between items-center my-5 border-b border-gray-700 py-1">
           <div>
             <p className="text-xl font-bold">Presets</p>
@@ -92,6 +104,7 @@ const Preset = () => {
             <p className="text-gray-700">Input the PIN to access the presets</p>
           </div>
           <div className="flex gap-2 my-10">
+            {/* <form onSubmit= {handleSubmit}> */}
             {[0, 1, 2, 3, 4, 5].map((idx) => (
               <input
                 key={idx}
@@ -108,6 +121,7 @@ const Preset = () => {
                 autoComplete="one-time-code"
               />
             ))}
+            {/* </form> */}
           </div>
 
           <div>
@@ -115,11 +129,12 @@ const Preset = () => {
               className="bg-red-700 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-white rounded py-2 px-2 transition-opacity 
               duration-300 ease-in-out hover:opacity-40"
               disabled={pin.some(d => d === "")}
+              onClick={handleSubmit}
             >
               Verify PIN
             </button>
-          </div>
         </div>
+      </div>
       </div>
     </>
   );
