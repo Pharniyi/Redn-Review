@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
   return (
-    <div className='text-white h-screen overflow-hidden'>
+    <div className='text-white'>
         <TopNav />
         <Outlet />
         {/* <Intro />         */}
