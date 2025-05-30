@@ -12,6 +12,7 @@ const CustomNavLink = ({to, label, activePaths = [] }) => {
             {label}
     </NavLink>
   )
+  
 }
 
 export default CustomNavLink;
