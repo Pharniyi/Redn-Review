@@ -1,7 +1,8 @@
 import React from 'react'
 import lucide_image from '../../assets/lucide_image.png';
-import upload_states from '../../assets/upload_states.png'
-import instagram_icon from '../../assets/instagram_icon.png'
+import upload_states from '../../assets/upload_states.png';
+import instagram_icon from '../../assets/instagram_icon.png';
+import x_icon from '../../assets/x_icon.png';
 const PresetsLayout = () => {
 return (
     <>
@@ -90,9 +91,24 @@ return (
                 </div>
 
 
-                <div className='flex items-center'>
-                    <img src={instagram_icon} alt="" />
-                    <span>Instagram</span>
+                <div className='flex justify-between my-8'>
+                   <span className='flex items-center gap-4'> <img src={instagram_icon} alt="" />Instagram</span>
+                    <button className="bg-red-700 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-white rounded py-2 px-2 transition-opacity 
+                        duration-300 ease-in-out hover:opacity-40"
+                        disabled
+                        >
+                        Connect account
+                    </button>
+                </div>
+
+                <div className='flex justify-between my-8'>
+                   <span className='flex items-center gap-4'> <img src={x_icon} alt="" />X(Formerly Twitter)</span>
+                    <button className="border-1 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-white rounded py-2 px-2 transition-opacity 
+                        duration-300 ease-in-out hover:opacity-40"
+                        disabled
+                        >
+                        Disconnect account
+                    </button>
                 </div>
             </div>
         </div>
