@@ -7,14 +7,18 @@ const Preset = () => {
   const inputsRef = React.useRef([]);
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (pin.join('') === '123456') {
       setRedirect(true);
     } else {
-      setError('Incorrect Password');
+      setError('Pin is invalid!');
+      setError('Pin is invalid!');
+      document.body.style.backgroundColor = '#f8d7da';
+      setTimeout(() => {
+        document.body.style.backgroundColor = '';
+      }, 1500);
     }
   }
 
